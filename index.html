@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>Ma Boutique en Ligne</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos adicionales */
+        #ad-container {
+          border: 1px solid #ddd;
+          padding: 20px;
+          margin: 20px 0;
+        }
+      </style>
 </head>
 <body>
 
@@ -31,7 +39,17 @@
         </div>
     </nav>
 </header>
-
+<div class="container">
+    <div class="card mb-4 shadow-sm">
+        <img src="" alt="">
+        <div class="container">
+            <div id="ad-container">
+            <img src="data:image/png;base64,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" alt="">
+            </div>
+            <button id="changeAdBtn" class="btn btn-primary">Cambiar Anuncio</button>
+          </div>
+    </div>
+</div>
 <main class="container mt-4">
     <section class="row" id="products">
         <main class="container">
@@ -143,7 +161,13 @@
         <span class="text-muted">&copy; 2023 Ma Boutique en Ligne</span>
     </div>
 </footer>
-
+<script>
+    // JavaScript para cambiar el anuncio al hacer clic en el botón
+    document.getElementById('changeAdBtn').addEventListener('click', function() {
+      var adContainer = document.getElementById('ad-container');
+      adContainer.innerHTML = 'Nuevo anuncio de publicidad';
+    });
+  </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
