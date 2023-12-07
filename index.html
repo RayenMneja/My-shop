@@ -163,13 +163,14 @@
     function changeImage() {
         slideImages[index].style.display = 'inline';
         index++;
-
         if (index >= slideImages.length) {
             index = 0;
         }
     }
+         
+        setInterval(changeImage, 1000);
+    
 
-    setInterval(changeImage, 1000);
 </script>
 <footer class="footer mt-auto py-3 bg-light text-center">
     <div class="container">
