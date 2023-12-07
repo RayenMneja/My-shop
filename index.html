@@ -64,7 +64,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary" id="1">Ajouter au Panier</button>
+                                        <button class="btn btn-primary" onclick="addToCart(1)">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary" id="2">Ajouter au Panier</button>
+                                        <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary" id="3">Ajouter au Panier</button>
+                                        <button class="btn btn-primary" onclick="addToCart(3)">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary" id="5">Ajouter au Panier</button>
+                                        <button class="btn btn-primary" onclick="addToCart(4)">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary" id="6">Ajouter au Panier</button>
+                                        <button class="btn btn-primary" onclick="addToCart(5)">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -143,34 +143,58 @@
                                 <p class="card-text">Prix : 29,99 €</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary" id="7">Ajouter au Panier</button>
+                                        <button class="btn btn-primary" onclick="addToCart(6)">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </form>
-
+            <div class="container" id="cart">
+                <h2>Cart</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-body">
+                    </tbody>
+                </table>
+            </div>
         </main>
     </section>
 </main>
 <script>
-    let slideImages = document.querySelectorAll('#ad-container img');
-    let index = 0;
+    let cart = [];
 
-    function changeImage() {
-        slideImages[index].style.display = 'inline';
-        index++;
-        if (index >= slideImages.length) {
-            index = 0;
-        }
+    function addToCart(productId) {
+        cart.push(productId);
+        renderCart();
     }
-         
-        setInterval(changeImage, 1000);
-    
 
+    function renderCart() {
+        let cartBody = document.getElementById('cart-body');
+        cartBody.innerHTML = '';
+
+        cart.forEach(productId => {
+            let row = document.createElement('tr');
+
+            let productCell = document.createElement('td');
+            productCell.textContent = 'Product ' + productId;
+
+            let priceCell = document.createElement('td');
+            priceCell.textContent = '$' + productId * 10;
+
+            row.appendChild(productCell);
+            row.appendChild(priceCell);
+
+            cartBody.appendChild(row);
+        });
+    }
 </script>
 <footer class="footer mt-auto py-3 bg-light text-center">
     <div class="container">

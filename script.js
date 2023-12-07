@@ -70,3 +70,5 @@ function addToCart(productId) {
            index = 0;
        }
    }
+
+  
