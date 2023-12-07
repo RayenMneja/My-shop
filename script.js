@@ -43,3 +43,24 @@ const images = [
     .then(() => { window.location.reload(); })
     .catch(error => console.error('Error!', error.message))
   })
+  let phrases = [
+    "Hello, world!",
+    "JavaScript is amazing!",
+    "AI will change everything!",
+    "Never give up learning!"
+   ];
+   
+   let i = 0;
+   
+   function afficherPhrase() {
+    let phrase = phrases[i];
+    console.log(phrase);
+   
+    i = (i + 1) % phrases.length;
+   }
+   
+   // Afficher la première phrase immédiatement
+   afficherPhrase();
+   
+   // Changer la phrase chaque seconde après
+   setInterval(afficherPhrase, 1000);
