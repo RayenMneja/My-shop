@@ -42,7 +42,7 @@
                     <img src="img1.jpg" alt="Image 1" class="card-img-top">
                     <div class="card-body" >
                         <h5 class="card-title">Product 1</h5>
-                        <p class="card-text">Price: $10</p>
+                        <p class="card-text">Price: dt 10</p>
                         <button class="btn btn-primary" onclick="addToCart(1)">Add to Cart</button>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                     <img src="img2.jpg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
-                        <p class="card-text">Price: $10</p>
+                        <p class="card-text">Price: dt 10</p>
                         <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <img src="img3.jpg" alt="Image 3" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 3</h5>
-                        <p class="card-text">Price: $30</p>
+                        <p class="card-text">Price: dt 30</p>
                         <button class="btn btn-primary" onclick="addToCart(3)">Add to Cart</button>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                     <img src="img2.jpg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
-                        <p class="card-text">Price: $10</p>
+                        <p class="card-text">Price: dt 10</p>
                         <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     <img src="img2.jpg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
-                        <p class="card-text">Price: $10</p>
+                        <p class="card-text">Price: dt 10</p>
                         <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                     <img src="img2.jpg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
-                        <p class="card-text">Price: $10</p>
+                        <p class="card-text">Price: dt 10</p>
                         <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                     <img src="img2.jpg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
-                        <p class="card-text">Price: $10</p>
+                        <p class="card-text">Price: dt 10</p>
                         <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                     <img src="img2.jpg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
-                        <p class="card-text">Price: $10</p>
+                        <p class="card-text">Price: dt 10</p>
                         <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                     <img src="img2.jpg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
-                        <p class="card-text">Price: $10</p>
+                        <p class="card-text">Price: dt 10</p>
                         <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
                     </div>
                 </div>
@@ -141,34 +141,46 @@
             </thead>
             <tbody id="cart-body">
             </tbody>
+            <tfoot id="cart-foot">
+                <h3 id="h3"></h3>
+            </tfoot>
         </table>
     </div>
 
     <script>
         let cart = [];
+        let somme = 0;
 
         function addToCart(productId) {
             cart.push(productId);
             renderCart();
+            var s= document.getElementById('h3')
+                const v= productId * 10;
+                const t = somme;
+                somme=t+v;
+                s.innerHTML = 'dt '+somme;
+                console.log(somme)
         }
 
         function renderCart() {
             let cartBody = document.getElementById('cart-body');
             cartBody.innerHTML = '';
-
             cart.forEach(productId => {
+                
                 let row = document.createElement('tr');
-
                 let productCell = document.createElement('td');
                 productCell.textContent = 'Product ' + productId;
 
+                
+                cartBody.appendChild(row);
+                
                 let priceCell = document.createElement('td');
-                priceCell.textContent = '$' + productId * 10;
-
+                priceCell.textContent = 'dt' + productId * 10;
                 row.appendChild(productCell);
                 row.appendChild(priceCell);
+                
+                
 
-                cartBody.appendChild(row);
             });
         }
     </script>
