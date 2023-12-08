@@ -129,23 +129,31 @@
             </div>
         </div>
     </div>
-
+<form method="post" name="contact-form">
     <div class="container" id="cart">
         <h2>Cart</h2>
+        <label for="tname">
         <table class="table">
             <thead>
                 <tr>
                     <th>Product</th>
                     <th>Price</th>
                 </tr>
+                <input type="text" name="r">
             </thead>
-            <tbody id="cart-body">
+            <tbody inputmode="td" id="cart-body" name="data">
             </tbody>
             <tfoot id="cart-foot">
                 <h3 id="h3"></h3>
             </tfoot>
-        </table>
+            
+        </table> 
+        </label>
+        <input type="text" id="tname" style="display: none;">
+        <button type="submit">submit</button>
     </div>
+</form>
+    
 
     <script>
         let cart = [];
@@ -154,14 +162,21 @@
         function addToCart(productId) {
             cart.push(productId);
             renderCart();
+            envoier();
             var s= document.getElementById('h3')
                 const v= productId * 10;
                 const t = somme;
                 somme=t+v;
                 s.innerHTML = 'dt '+somme;
-                console.log(somme)
+                console.log(somme);
         }
-
+        function envoier(){
+            let ev = document.getElementById('tname');
+            ev.innerHTML = '';
+            cart.forEach(productId => {
+                productCell.appendChild('Product ' + productId) ;
+            });
+        }
         function renderCart() {
             let cartBody = document.getElementById('cart-body');
             cartBody.innerHTML = '';
@@ -178,10 +193,18 @@
                 priceCell.textContent = 'dt' + productId * 10;
                 row.appendChild(productCell);
                 row.appendChild(priceCell);
-                
-                
-
             });
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxNmOC-NG-0JrmR6YYzF9k7vlRVRfPwrtgk3vittmf3A4jtqnggd2b-lyC9RUX3kouV8g/exec'
+
+const form = document.forms['contact-form']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  .then(response => alert("Thank you! your form is submitted successfully." ))
+  .then(() => { window.location.reload(); })
+  .catch(error => console.error('Error!', error.message))
+})
         }
     </script>
 </body>
