@@ -124,7 +124,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
                         <p class="card-text">Price: dt 10</p>
-                        <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
+                        <button class="btn btn-primary" onclick="addToCart(20)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -169,6 +169,8 @@
                 somme=t+v;
                 s.innerHTML = 'dt '+somme;
         }
+
+
         function envoier(){
             let ev = document.getElementById('tname');
             let commend ='';
@@ -176,7 +178,7 @@
                 
                 commend = commend + 'Product ' + productId;
                 return commend
-                //productCell.textContent('Product ' + productId) ;
+                
             });
             ev.value = commend ;
         }
@@ -187,7 +189,7 @@
                 
                 let row = document.createElement('tr');
                 let productCell = document.createElement('td');
-                productCell.textContent = 'Product ' + productId;
+                productCell.textContent = 'praduit '+productId;
 
                 
                 cartBody.appendChild(row);
