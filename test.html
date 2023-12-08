@@ -133,14 +133,15 @@
 <form method="post" name="contact-form">
     <div class="container" id="cart">
         <h2>Cart</h2>
-        <label for="tname">
         <table class="table">
             <thead>
                 <tr>
                     <th>Product</th>
                     <th>Price</th>
                 </tr>
-                <input type="text" name="r">
+                    <input type="text" class="form-control" name="name"  placeholder="full name">
+                    <input type="tel" class="form-control" name="tel"  placeholder="number">
+                    <input type="email" class="form-control" name="email" placeholder="name@example.com">
             </thead>
             <tbody inputmode="td" id="cart-body">
             </tbody>
@@ -149,9 +150,8 @@
             </tfoot>
             
         </table> 
-        </label>
         <input type="text" id="tname" style="display: none;" name="data">
-        <button type="submit" >submit</button>
+        <button class="btn btn-primary" type="submit" onclick="envoier()">submit</button>
     </div>
 </form>
     
@@ -163,22 +163,22 @@
         function addToCart(productId) {
             cart.push(productId);
             renderCart();
-            envoier();
             var s= document.getElementById('h3')
                 const v= productId * 10;
                 const t = somme;
                 somme=t+v;
                 s.innerHTML = 'dt '+somme;
-                console.log(somme);
         }
         function envoier(){
             let ev = document.getElementById('tname');
-
+            let commend ='';
             cart.forEach(productId => {
-                let l = 'Product ' + productId;
-                ev.value = l;
+                
+                commend = commend + 'Product ' + productId;
+                return commend
                 //productCell.textContent('Product ' + productId) ;
             });
+            ev.value = commend ;
         }
         function renderCart() {
             let cartBody = document.getElementById('cart-body');
