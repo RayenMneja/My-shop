@@ -40,17 +40,17 @@
         <div class="row">
             <div class="col-md-4" style="margin-top: 10px;">
                 <div class="card">
-                    <img src="img1.jpg" alt="Image 1" class="card-img-top">
+                    <img src="th.jpeg" alt="Image 1" class="card-img-top">
                     <div class="card-body" >
                         <h5 class="card-title">Product 1</h5>
                         <p class="card-text">Price: dt 10</p>
-                        <button class="btn btn-primary" onclick="addToCart(1)">Add to Cart</button>
+                        <button class="btn btn-primary" onclick="addToCart(1)" >Add to Cart</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4" style="margin-top: 10px;">
                 <div class="card">
-                    <img src="img2.jpg" alt="Image 2" class="card-img-top">
+                    <img src="th (1).jpeg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
                         <p class="card-text">Price: dt 10</p>
@@ -60,7 +60,7 @@
             </div>
             <div class="col-md-4" style="margin-top: 10px;">
                 <div class="card">
-                    <img src="img3.jpg" alt="Image 3" class="card-img-top">
+                    <img src="th (2).jpeg" alt="Image 3" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 3</h5>
                         <p class="card-text">Price: dt 30</p>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-4" style="margin-top: 10px;">
                 <div class="card">
-                    <img src="img2.jpg" alt="Image 2" class="card-img-top">
+                    <img src="th (3).jpeg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
                         <p class="card-text">Price: dt 10</p>
@@ -80,7 +80,7 @@
             </div>
             <div class="col-md-4" style="margin-top: 10px;">
                 <div class="card">
-                    <img src="img2.jpg" alt="Image 2" class="card-img-top">
+                    <img src="th (4).jpeg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
                         <p class="card-text">Price: dt 10</p>
@@ -90,7 +90,7 @@
             </div>
             <div class="col-md-4" style="margin-top: 10px;">
                 <div class="card">
-                    <img src="img2.jpg" alt="Image 2" class="card-img-top">
+                    <img src="th (5).jpeg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
                         <p class="card-text">Price: dt 10</p>
@@ -100,7 +100,7 @@
             </div>
             <div class="col-md-4" style="margin-top: 10px;">
                 <div class="card">
-                    <img src="img2.jpg" alt="Image 2" class="card-img-top">
+                    <img src="th (6).jpeg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
                         <p class="card-text">Price: dt 10</p>
@@ -110,7 +110,7 @@
             </div>
             <div class="col-md-4" style="margin-top: 10px;" >
                 <div class="card">
-                    <img src="img2.jpg" alt="Image 2" class="card-img-top">
+                    <img src="th (7).jpeg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
                         <p class="card-text">Price: dt 10</p>
@@ -120,7 +120,7 @@
             </div>
             <div class="col-md-4" style="margin-top: 10px;">
                 <div class="card">
-                    <img src="img2.jpg" alt="Image 2" class="card-img-top">
+                    <img src="th (8).jpeg" alt="Image 2" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
                         <p class="card-text">Price: dt 10</p>
@@ -133,6 +133,7 @@
 <form method="post" name="contact-form">
     <div class="container" id="cart">
         <h2>Cart</h2>
+        
         <table class="table">
             <thead>
                 <tr>
@@ -156,61 +157,6 @@
 </form>
     
 
-    <script>
-        let cart = [];
-        let somme = 0;
-        
-        function addToCart(productId) {
-            cart.push(productId);
-            renderCart();
-            var s= document.getElementById('h3')
-                const v= productId * 10;
-                const t = somme;
-                somme=t+v;
-                s.innerHTML = 'dt '+somme;
-        }
-
-
-        function envoier(){
-            let ev = document.getElementById('tname');
-            let commend ='';
-            cart.forEach(productId => {
-                
-                commend = commend + 'Product ' + productId;
-                return commend
-                
-            });
-            ev.value = commend ;
-        }
-        function renderCart() {
-            let cartBody = document.getElementById('cart-body');
-            cartBody.innerHTML = '';
-            cart.forEach(productId => {
-                
-                let row = document.createElement('tr');
-                let productCell = document.createElement('td');
-                productCell.textContent = 'praduit '+productId;
-
-                
-                cartBody.appendChild(row);
-                
-                let priceCell = document.createElement('td');
-                priceCell.textContent = 'dt' + productId * 10;
-                row.appendChild(productCell);
-                row.appendChild(priceCell);
-            });
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxNmOC-NG-0JrmR6YYzF9k7vlRVRfPwrtgk3vittmf3A4jtqnggd2b-lyC9RUX3kouV8g/exec'
-
-const form = document.forms['contact-form']
-
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-  .then(response => alert("Thank you! your form is submitted successfully." ))
-  .then(() => { window.location.reload(); })
-  .catch(error => console.error('Error!', error.message))
-})
-        }
-    </script>
+    <script src="scipts.js"></script>
 </body>
 </html>
