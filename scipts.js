@@ -29,7 +29,7 @@ let cart = [];
             let commend ='';
             cart.forEach(productId => {
                 
-                commend = commend + 'Product ' + productId;
+                commend = commend + 'Product ' + productId +' , ';
                 
             });
             return commend
