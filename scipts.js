@@ -24,17 +24,32 @@ let cart = [];
         }
 
 
-        function envoier(){
-            let ev = document.getElementById('tname');
+        function finCommend(){
+
             let commend ='';
             cart.forEach(productId => {
                 
                 commend = commend + 'Product ' + productId;
-                return commend
                 
             });
-            ev.value = commend ;
+            return commend
         }
+        function envoier(){
+            let ev = document.getElementById('tname');
+            ev.value = finCommend() ;
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxNmOC-NG-0JrmR6YYzF9k7vlRVRfPwrtgk3vittmf3A4jtqnggd2b-lyC9RUX3kouV8g/exec'
+
+            const form = document.forms['contact-form']
+            
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              .then(response => alert("Thank you! your form is submitted successfully." ))
+              .then(() => { window.location.reload(); })
+              .catch(error => console.error('Error!', error.message))
+            });
+        }
+        
         function renderCart() {
             let cartBody = document.getElementById('cart-body');
             cartBody.innerHTML = '';
@@ -51,16 +66,5 @@ let cart = [];
                 priceCell.textContent = 'dt' + productId * 10;
                 row.appendChild(productCell);
                 row.appendChild(priceCell);
-            });
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxNmOC-NG-0JrmR6YYzF9k7vlRVRfPwrtgk3vittmf3A4jtqnggd2b-lyC9RUX3kouV8g/exec'
+            });}
 
-const form = document.forms['contact-form']
-
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-  .then(response => alert("Thank you! your form is submitted successfully." ))
-  .then(() => { window.location.reload(); })
-  .catch(error => console.error('Error!', error.message))
-})
-        }
