@@ -1,4 +1,6 @@
 let cart = [];
+let flous=[10,20,66,40,55,60,70,35,200];
+let produit=["a7mar","a5ther","asfar","oronge","a7mar","a5ther","asfar","oronge","tout"];
         let somme = 0;
 
        index++;
@@ -17,7 +19,7 @@ let cart = [];
             cart.push(productId);
             renderCart();
             var s= document.getElementById('h3');
-                const v= productId * 10;
+                const v= flous[productId];
                 const t = somme;
                 somme=t+v;
                 s.innerHTML = 'total: dt '+somme;
@@ -29,7 +31,7 @@ let cart = [];
             let commend ='';
             cart.forEach(productId => {
                 
-                commend = commend + 'Product ' + productId +' , ';
+                commend = commend + produit[productId] +' , ';
                 
             });
             return commend
@@ -50,21 +52,55 @@ let cart = [];
             });
         }
         
-        function renderCart() {
-            let cartBody = document.getElementById('cart-body');
-            cartBody.innerHTML = '';
-            cart.forEach(productId => {
+  //      function renderCart() {
+ //           let cartBody = document.getElementById('cart-body');
+ //           cartBody.innerHTML = '';
+  //          cart.forEach(productId => {
                 
-                let row = document.createElement('tr');
-                let productCell = document.createElement('td');
-                productCell.textContent = 'praduit '+productId;
+  //              let row = document.createElement('tr');
+   //             let productCell = document.createElement('td');
+   //             productCell.textContent = 'praduit '+productId;
 
+   //             
+   //             cartBody.appendChild(row);
                 
-                cartBody.appendChild(row);
+    //            let priceCell = document.createElement('td');
+    //            priceCell.textContent = 'dt' + productId * 10;
+    //            let dalite = document.createElement('button');
                 
-                let priceCell = document.createElement('td');
-                priceCell.textContent = 'dt' + productId * 10;
-                row.appendChild(productCell);
-                row.appendChild(priceCell);
-            });}
+     //           row.appendChild(productCell);
+     //           row.appendChild(priceCell);
+      //          row.appendChild(dalite);
+     //       });}
+     function renderCart() {
+        let cartBody = document.getElementById('cart-body');
+        cartBody.innerHTML = '';
+        cart.forEach(productId => {
+            
+            let row = document.createElement('tr');
+            let productCell = document.createElement('td');
+            productCell.textContent = produit[productId];
+    
+            
+            cartBody.appendChild(row);
+            
+            let priceCell = document.createElement('td');
+            priceCell.textContent = 'dt' + flous[productId];
+            let dalite = document.createElement('button');
+            dalite.textContent = 'X';
+            dalite.addEventListener('click', () => {
+                cart.splice(cart.indexOf(productId), 1);
+                renderCart();
+                var s= document.getElementById('h3');
+                const v= flous[productId];
+                const t = somme;
+                somme=t-v;
+                s.innerHTML = 'total: dt '+somme;
+            });
+    
+            row.appendChild(productCell);
+            row.appendChild(priceCell);
+            row.appendChild(dalite);
+        });
+    }
 
