@@ -8,13 +8,7 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
        if (index >= slideImages.length) {
            index = 0;
        }
-        function rest(){   
-            let slide = document.getElementById('cart-body');
-            
 
-            var s= document.getElementById('h3');
-            s.innerHTML = ''
-        }
         function addToCart(productId) {
             cart.push(productId);
             renderCart();
@@ -82,4 +76,26 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
             row.appendChild(dalite);
         });
     }
+    function rechercherProduits() {
+      let recherche = document.getElementById("recherche").value;
+      let resultat = [];
+      let compt ="";
+
+      for (let i = 0; i < produit.length; i++) {
+        let produitF = produit[i];
+
+        if (produitF.toLowerCase().includes(recherche.toLowerCase())) {
+          resultat.push(produitF);
+          compt=compt+String(i);
+        }
+      }
+
+      // Affichage des résultats
+      let affichage = "";
+      for (let i = 0; i < resultat.length; i++) {
+        affichage += `<a href="#${compt[i]}">${resultat[i]}</a>`;
+      }
+      document.getElementById("resultat").innerHTML = affichage;
+    }
+
 
