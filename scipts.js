@@ -80,7 +80,6 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
       let recherche = document.getElementById("recherche").value;
       let resultat = [];
       let compt ="";
-
       for (let i = 0; i < produit.length; i++) {
         let produitF = produit[i];
 
@@ -89,13 +88,22 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
           compt=compt+String(i);
         }
       }
-
-      // Affichage des résultats
-      let affichage = "";
-      for (let i = 0; i < resultat.length; i++) {
-        affichage += `<a href="#${compt[i]}">${resultat[i]}</a>`;
+      if (recherche==""){
+        document.getElementById("resultat").innerHTML = '';
+      }else{
+        let affichage = "";
+        for (let i = 0; i < resultat.length; i++) {
+          affichage += `<a class="ch" href="#${compt[i]}">${resultat[i]}</a>`;
+        }      
+        document.getElementById("resultat").innerHTML = affichage;
       }
-      document.getElementById("resultat").innerHTML = affichage;
-    }
+      
+   };
+   function btnrecherch(){
+    
+    setTimeout(rechercherProduits(),10000);
+    
+   }
+
 
 
