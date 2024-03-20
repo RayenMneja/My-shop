@@ -53,45 +53,24 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
         let cartBody = document.getElementById('cart-body');
         cartBody.innerHTML = '';
         cart.forEach(productId => {
-            
             let row = document.createElement('tr');
             let productCell = document.createElement('td');
             productCell.textContent = produit[productId];
-    
-            
             cartBody.appendChild(row);
-            
             let priceCell = document.createElement('td');
             priceCell.textContent = 'dt' + flous[productId];
             let dalite = document.createElement('button');
             dalite.textContent = 'delete';
             dalite.addEventListener('click', () => {
-              Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-              }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                    })
-                    cart.splice(cart.indexOf(productId), 1);
-                    renderCart();
-                    var s= document.getElementById('h3');
-                    const v= flous[productId];
-                    const t = somme;
-                    somme=t-v;
-                    s.innerHTML = 'total: dt '+somme; 
-                }
-              }); 
-            });
-    
+                cart.splice(cart.indexOf(productId), 1);
+                renderCart();
+                var s= document.getElementById('h3');
+                const v= flous[productId];
+                const t = somme;
+                somme=t-v;
+                s.innerHTML = 'total: dt '+somme; 
+              }
+            );
             row.appendChild(productCell);
             row.appendChild(priceCell);
             row.appendChild(dalite);
@@ -121,7 +100,34 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
       }
       
     };
-    
+function restall(){
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+          Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+          })
+            let cartBody = document.getElementById('cart-body');
+            cart.splice(0);
+            renderCart();
+            var s= document.getElementById('h3');
+            somme=0
+            s.innerHTML = 'total: dt '+somme;
+            cartBody.innerHTML =removeChild(cartBody.lastElementChild) ; 
+      }
+    }); 
+  }
+
+
 'use strict'
 
 const menuToggle = document.querySelector('.menu-toggle');

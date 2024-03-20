@@ -122,7 +122,7 @@ button{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--white-color-alt);
+    background-color: var(--dark-color);
     padding: 1rem 2rem;
   }
   .company-logo {
@@ -176,19 +176,22 @@ button{
     cursor: pointer;
     background: -webkit-linear-gradient(
       120deg,
-      var(--primary-color-alt),
+      var(--dark-color),
       var(--primary-color)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: none !important;
   }
-  
-  /* ================= MAIN ================ */
-  
-  /* -------- HOME SECTION -------------- */
+  #btnrest{
+    float: right;
+    background-color: var(--second-color);
+    color: var(--white-color-alt);
+    
+  }
   .section-1 {
-    background-color: var(--white-color-alt);
+    width: 100%;
+    background-color: var(--dark-color);
     display: grid;
     height: 100vh;
   }

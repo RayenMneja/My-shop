@@ -163,10 +163,11 @@
             </div>
         </div>
     </section>
-<form method="post" name="contact-form">
+
     <div class="container" id="cart">
         <h2>Cart</h2>
-        
+        <button class="btn" id="btnrest" onclick="restall()">rest</button>
+        <form method="post" name="contact-form">
         <table class="table">
             <thead>
                 <tr>
@@ -186,8 +187,9 @@
         </table> 
         <input type="text" id="tname" style="display: none;" name="data" required>
         <button class="btn btn-lg btn-block" id="btnsubmit" type="submit" onclick="envoier()" >submit</button>
+        </form>
     </div>
-</form>
+
 <footer class="site-footer" >
     <div class="container">
       <div class="row">
