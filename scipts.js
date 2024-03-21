@@ -1,5 +1,6 @@
 
 let cart = [];
+let items = [];
 let flous=[10,20,66,40,55,60,70,35,200];
 let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mible7","asfar","azra9","gray","kharawi"];
         let somme = 0;
@@ -13,11 +14,7 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
         function addToCart(productId) {
             cart.push(productId);
             renderCart();
-            var s= document.getElementById('h3');
-                const v= flous[productId];
-                const t = somme;
-                somme=t+v;
-                s.innerHTML = 'total: dt '+somme;
+            
         }
 
 
@@ -51,43 +48,56 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
             });
         }
      function renderCart() {
-      Swal.fire({
-        title: "How old are you?",
-        icon: "question",
-        input: "range",
-        inputLabel: "Your age",
-        inputAttributes: {
-          min: "8",
-          max: "120",
-          step: "1"
-        },
-        inputValue: 25
-      });
-        let cartBody = document.getElementById('cart-body');
-        cartBody.innerHTML = '';
-        cart.forEach(productId => {
-            let row = document.createElement('tr');
-            let productCell = document.createElement('td');
-            productCell.textContent = produit[productId];
-            cartBody.appendChild(row);
-            let priceCell = document.createElement('td');
-            priceCell.textContent = 'dt' + flous[productId];
-            let dalite = document.createElement('button');
-            dalite.textContent = 'delete';
-            dalite.addEventListener('click', () => {
-                cart.splice(cart.indexOf(productId), 1);
-                renderCart();
+        	
+         Swal.fire({
+          title: "Multiple inputs",
+          html: `
+            <input id="swal-input1" class="swal2-input">
+          `,
+          focusConfirm: false,
+          preConfirm: () => {
+            nb=document.getElementById("swal-input1").value,
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+            let cartBody = document.getElementById('cart-body');
+            cartBody.innerHTML = '';
+            cart.forEach(productId => {
+                let row = document.createElement('tr');
+                let productCell = document.createElement('td');
+                productCell.textContent = produit[productId]+"x"+String(nb);
+                cartBody.appendChild(row);
+                let priceCell = document.createElement('td');
+                priceCell.textContent = 'dt' + flous[productId]*nb;
+                let dalite = document.createElement('button');
+                dalite.textContent = 'delete';
+                dalite.addEventListener('click', () => {
+                    cart.splice(cart.indexOf(productId), 1);
+                    productCell.textContent = produit[productId]+"x"+String(nb-1);
+                    cartBody.appendChild(row);
+                    priceCell.textContent = 'dt' + flous[productId]*(nb-1);
+                    renderCart();
+                    var s= document.getElementById('h3');
+                    const v= flous[productId];
+                    const t = somme;
+                    somme=t-v;
+                    s.innerHTML = 'total: dt '+somme; 
+                  }
+                );
                 var s= document.getElementById('h3');
-                const v= flous[productId];
+                const v= flous[productId]*nb;
                 const t = somme;
-                somme=t-v;
-                s.innerHTML = 'total: dt '+somme; 
-              }
-            );
-            row.appendChild(productCell);
-            row.appendChild(priceCell);
-            row.appendChild(dalite);
+                somme=t+v;
+                s.innerHTML = 'total: dt '+somme;
+                row.appendChild(productCell);
+                row.appendChild(priceCell);
+                row.appendChild(dalite);
+            });
+          }
         });
+        
     }
     function rechercherProduits() {
       let recherche = document.getElementById("recherche").value;
