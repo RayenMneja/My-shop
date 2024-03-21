@@ -1,3 +1,4 @@
+
 let cart = [];
 let flous=[10,20,66,40,55,60,70,35,200];
 let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mible7","asfar","azra9","gray","kharawi"];
@@ -50,6 +51,18 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
             });
         }
      function renderCart() {
+      Swal.fire({
+        title: "How old are you?",
+        icon: "question",
+        input: "range",
+        inputLabel: "Your age",
+        inputAttributes: {
+          min: "8",
+          max: "120",
+          step: "1"
+        },
+        inputValue: 25
+      });
         let cartBody = document.getElementById('cart-body');
         cartBody.innerHTML = '';
         cart.forEach(productId => {
