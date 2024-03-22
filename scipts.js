@@ -1,7 +1,7 @@
 
 let cart = [];
 let items = '';
-
+let itemsCount = {};
 let flous=[10,20,66,40,55,60,70,35,200];
 let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mible7","asfar","azra9","gray","kharawi"];
         let somme = 0;
@@ -22,7 +22,7 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
             preConfirm: () => {
                 
                 nb =document.getElementById("swal-input1").value,
-                items=items+String(nb);
+                itemsCount.push(nb);
                 cart.push(productId);
                 renderCart();
                 var s= document.getElementById('h3');
@@ -74,6 +74,7 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
             let cartBody = document.getElementById('cart-body');
             cartBody.innerHTML = '';
             cart.forEach((productId,i) => {
+                itemsCount[productId]=items[i];
                 let row = document.createElement('tr');
                 let productCell = document.createElement('td');
                 productCell.textContent = produit[productId]+'x'+items[i];
@@ -86,9 +87,10 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
                 dalite.addEventListener('click', () => {
                     indexx=Number(items[cart.indexOf(productId)])
                     indexs=cart.indexOf(productId);
+                    console.log(indexs);
                     items=items.slice(0,indexs-1)+items.slice(indexs+1,items.length);                  
                     var s= document.getElementById('h3');
-                    const v= flous[productId]*indexx;
+                    const v= flous[productId]*itemsCount[productId];
                     const t = somme;
                     somme=t-v;
                     s.innerHTML = 'total: dt '+somme;
