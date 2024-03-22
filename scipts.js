@@ -1,6 +1,7 @@
 
 let cart = [];
-let items = [];
+let items = '';
+
 let flous=[10,20,66,40,55,60,70,35,200];
 let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mible7","asfar","azra9","gray","kharawi"];
         let somme = 0;
@@ -12,8 +13,24 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
        }
 
         function addToCart(productId) {
-            cart.push(productId);
-            renderCart();
+           Swal.fire({
+            title: "Multiple inputs",
+            html: `
+              <input id="swal-input1" class="swal2-input">
+            `,
+            focusConfirm: false,
+            preConfirm: () => {
+                
+                nb =document.getElementById("swal-input1").value,
+                items=items+String(nb);
+                cart.push(productId);
+                renderCart();
+                
+                
+            }
+          });
+            
+            
             
         }
 
@@ -21,9 +38,10 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
         function finCommend(){
 
             let commend ='';
+            jj=0;
             cart.forEach(productId => {
-                
-                commend = commend + produit[productId] +' , ';
+                jj++;
+                commend = commend + produit[productId]+'x'+ items[jj] +' , ';
                 
             });
             return commend
@@ -48,46 +66,35 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
             });
         }
      function renderCart() {
-        	
-         Swal.fire({
-          title: "Multiple inputs",
-          html: `
-            <input id="swal-input1" class="swal2-input">
-          `,
-          focusConfirm: false,
-          preConfirm: () => {
-            nb=document.getElementById("swal-input1").value,
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success"
-            });
             let cartBody = document.getElementById('cart-body');
             cartBody.innerHTML = '';
+            ii=-1;
             cart.forEach(productId => {
+                ii++;
                 let row = document.createElement('tr');
                 let productCell = document.createElement('td');
-                productCell.textContent = produit[productId]+"x"+String(nb);
+                productCell.textContent = produit[productId]+'x'+items[ii];
                 cartBody.appendChild(row);
                 let priceCell = document.createElement('td');
-                priceCell.textContent = 'dt' + flous[productId]*nb;
+                priceCell.textContent = 'dt' + flous[productId]*Number(items[ii]);
                 let dalite = document.createElement('button');
+                dalite.className = "btn btn-danger";
                 dalite.textContent = 'delete';
                 dalite.addEventListener('click', () => {
                     cart.splice(cart.indexOf(productId), 1);
-                    productCell.textContent = produit[productId]+"x"+String(nb-1);
+                    productCell.textContent = produit[productId];
                     cartBody.appendChild(row);
-                    priceCell.textContent = 'dt' + flous[productId]*(nb-1);
+                    priceCell.textContent = 'dt' + flous[productId];
                     renderCart();
                     var s= document.getElementById('h3');
-                    const v= flous[productId];
+                    const v= flous[productId]*Number(items[ii-1]);
                     const t = somme;
                     somme=t-v;
                     s.innerHTML = 'total: dt '+somme; 
                   }
                 );
                 var s= document.getElementById('h3');
-                const v= flous[productId]*nb;
+                const v= flous[productId]*Number(items[ii]);
                 const t = somme;
                 somme=t+v;
                 s.innerHTML = 'total: dt '+somme;
@@ -96,9 +103,7 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
                 row.appendChild(dalite);
             });
           }
-        });
-        
-    }
+
     function rechercherProduits() {
       let recherche = document.getElementById("recherche").value;
       let resultat = [];
