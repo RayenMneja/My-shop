@@ -25,6 +25,11 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
                 items=items+String(nb);
                 cart.push(productId);
                 renderCart();
+                var s= document.getElementById('h3');
+                const v= flous[productId]*nb;
+                const t = somme;
+                somme=t+v;
+                s.innerHTML = 'total: dt '+somme;
                 
                 
             }
@@ -68,36 +73,29 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
      function renderCart() {
             let cartBody = document.getElementById('cart-body');
             cartBody.innerHTML = '';
-            ii=-1;
-            cart.forEach(productId => {
-                ii++;
+            cart.forEach((productId,i) => {
                 let row = document.createElement('tr');
                 let productCell = document.createElement('td');
-                productCell.textContent = produit[productId]+'x'+items[ii];
+                productCell.textContent = produit[productId]+'x'+items[i];
                 cartBody.appendChild(row);
                 let priceCell = document.createElement('td');
-                priceCell.textContent = 'dt' + flous[productId]*Number(items[ii]);
+                priceCell.textContent = 'dt' + flous[productId]*Number(items[i]);
                 let dalite = document.createElement('button');
                 dalite.className = "btn btn-danger";
                 dalite.textContent = 'delete';
                 dalite.addEventListener('click', () => {
-                    cart.splice(cart.indexOf(productId), 1);
-                    productCell.textContent = produit[productId];
-                    cartBody.appendChild(row);
-                    priceCell.textContent = 'dt' + flous[productId];
-                    renderCart();
+                    indexx=Number(items[cart.indexOf(productId)])
+                    indexs=cart.indexOf(productId);
+                    items=items.slice(0,indexs-1)+items.slice(indexs+1,items.length);                  
                     var s= document.getElementById('h3');
-                    const v= flous[productId]*Number(items[ii-1]);
+                    const v= flous[productId]*indexx;
                     const t = somme;
                     somme=t-v;
-                    s.innerHTML = 'total: dt '+somme; 
+                    s.innerHTML = 'total: dt '+somme;
+                    cart.splice(cart.indexOf(productId), 1);
+                    renderCart(); 
                   }
                 );
-                var s= document.getElementById('h3');
-                const v= flous[productId]*Number(items[ii]);
-                const t = somme;
-                somme=t+v;
-                s.innerHTML = 'total: dt '+somme;
                 row.appendChild(productCell);
                 row.appendChild(priceCell);
                 row.appendChild(dalite);
@@ -146,6 +144,7 @@ function restall(){
           })
             let cartBody = document.getElementById('cart-body');
             cart.splice(0);
+            items='';
             renderCart();
             var s= document.getElementById('h3');
             somme=0
