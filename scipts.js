@@ -1,17 +1,24 @@
-
+const getIpAddress = async() => {
+    try{
+      const response = await fetch('https://www.cloudflare.com/cdn-cgi/trace');
+      const data = await response.text();
+      const ipMatc = data.match(
+        /[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/,
+      );
+      if (ipMatc) {
+        console.log(ipMatc[0]);
+      }
+    }catch(err){
+      console.log('err');
+    }
+  }
+getIpAddress()
 let cart = [];
 let items = '';
 let itemsCount = {};
 let flous=[10,20,66,40,55,60,70,35,200];
 let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mible7","asfar","azra9","gray","kharawi"];
-        let somme = 0;
-
-       index++;
-
-       if (index >= slideImages.length) {
-           index = 0;
-       }
-
+let somme = 0;
         function addToCart(productId) {
            Swal.fire({
             title: "Multiple inputs",
@@ -150,6 +157,7 @@ function restall(){
       }
     }); 
   }
+
 
 
 
