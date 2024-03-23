@@ -78,14 +78,11 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
                 let priceCell = document.createElement('td');
                 priceCell.textContent = 'dt' + flous[productId]*Number(items[i]);
                 let dalite = document.createElement('button');
-                dalite.className = "btn btn-danger";
+                dalite.className = "btn";
                 dalite.textContent = 'delete';
                 dalite.addEventListener('click', () => {
                     indexx=Number(items[cart.indexOf(productId)])
-                    indexs=i;
-                    console.log(String(i));
-                    items=items.slice(0,indexs)+items.slice(indexs+1,items.length);  
-                    console.log(items);
+                    items=items.slice(0,i)+items.slice(i+1,items.length);  
                     cart.splice(i, 1);
                     renderCart();                
                     var s= document.getElementById('h3');
