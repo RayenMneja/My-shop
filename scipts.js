@@ -20,9 +20,9 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
             `,
             focusConfirm: false,
             preConfirm: () => {
-                
                 nb =document.getElementById("swal-input1").value,
-                itemsCount.push(nb);
+                items+=nb;
+                console.log(items);
                 cart.push(productId);
                 renderCart();
                 var s= document.getElementById('h3');
@@ -38,16 +38,12 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
             
             
         }
-
-
         function finCommend(){
-
             let commend ='';
             jj=0;
             cart.forEach(productId => {
-                jj++;
                 commend = commend + produit[productId]+'x'+ items[jj] +' , ';
-                
+                jj++;
             });
             return commend
         }
@@ -86,16 +82,18 @@ let produit=["a5thar 7chich","a5tharna3ne3i","a7mar ch3chou3i","a7mar","asfar mi
                 dalite.textContent = 'delete';
                 dalite.addEventListener('click', () => {
                     indexx=Number(items[cart.indexOf(productId)])
-                    indexs=cart.indexOf(productId);
-                    console.log(indexs);
-                    items=items.slice(0,indexs-1)+items.slice(indexs+1,items.length);                  
+                    indexs=i;
+                    console.log(String(i));
+                    items=items.slice(0,indexs)+items.slice(indexs+1,items.length);  
+                    console.log(items);
+                    cart.splice(i, 1);
+                    renderCart();                
                     var s= document.getElementById('h3');
                     const v= flous[productId]*itemsCount[productId];
                     const t = somme;
                     somme=t-v;
                     s.innerHTML = 'total: dt '+somme;
-                    cart.splice(cart.indexOf(productId), 1);
-                    renderCart(); 
+                     
                   }
                 );
                 row.appendChild(productCell);
