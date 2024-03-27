@@ -32,92 +32,249 @@
 </head>
 <body>
     <header>
-      <nav class="navbar navbar-expand-custom navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars text-white"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="test.html"><i class="far fa-address-book"></i>Address Book</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="shop-2.html"><i class="far fa-clone"></i>Components</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="panie.html"><i class="far fa-copy"></i>Documents</a>
-                </li>
-            </ul>
+        <nav class="navbar navbar-expand-custom navbar-mainbg">
+            <a class="navbar-brand navbar-logo" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                    <li class="nav-item active" id="btn1">
+                        <a class="nav-link" href="#accueil" ><button onclick="btn1()" style="background-color: transparent; width: 100%;height: 50px;"><i class="fas fa-tachometer-alt"></i>Dashboard</button></a>
+                    </li>
+                    <li class="nav-item" id="btn2">
+                        <a class="nav-link" href="#shop1"  ><button  onclick="btn2()" style="background-color: transparent; width: 100%;height: 50px;"><i class=" far fa-address-book"></i>Address Book</button></a>
+                    </li>
+                    <li class="nav-item" id="btn3">
+                        <a class="nav-link" href="#shop2" ><button onclick="btn3()" style="background-color: transparent; width: 100%;height: 50px;"><i class="far fa-clone"></i>Components</button></a>
+                    </li>
+                    <li class="nav-item " id="btn4">
+                        <a class="nav-link" href="#panie"  ><button onclick="btn4()" style="background-color: transparent; width: 100%;height: 50px;"><i class="far fa-copy"></i>Documents</button></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br><br><br>
+      </header> 
+        <article class="accueil active" id="accueil" data-page="accueil">
+          <section>
+            <main>
+                <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+                    <div class="carousel-indicators" >
+                      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner" >
+                      <div class="carousel-item active">
+                        <div class="container" > 
+                          <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/Banner/deniercoupbalaih24.jpg?width=1920" alt="">
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="container">
+                          <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/Banner/mix-accueil.jpg?width=1920" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">السابق</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                  </div><br><br><br><br><br><br><br><br><br>    
+                <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" style="height: 120vh;" >
+                    <div class="carousel-indicators" style="height: 120vh;">
+                      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner" style="height: 120vh;">
+                      <div class="carousel-item active">
+                        <div class="container" style="height: 120vh;"> 
+                          <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/catalog/product/cache/1/small_image/1920x/17f82f742ffe127f42dca9de82fb58b1/0/0/0032980_1_.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="container">
+                          <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/catalog/product/cache/1/small_image/1920x/17f82f742ffe127f42dca9de82fb58b1/0/0/0031862-black_2__1.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="container">
+                          <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/catalog/product/cache/1/small_image/1920x/17f82f742ffe127f42dca9de82fb58b1/0/0/0032588_1__1.jpg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">السابق</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">التالي</span>
+                    </button>
+                  </div>
+            </main>
+          </section>
+        </article>
+        <article class="shop1" id="shop1" data-page="shop1">
+          <section class="container" style="margin-top: 100px;">
+            <div class="row">
+                <div class="col-md-4" style="margin-top: 10px;">
+                    <div class="card" id="0">
+                        <img src="photo/a5thar 7chich.jpg" alt="Image 1" class="card-img-top">
+                        <div class="card-body"  >
+                            <h5 class="card-title">a5thar 7chich</h5>
+                            <p class="card-text">Price: dt 10</p>
+                            <button type="button" class="cta" onclick="addToCart(0)"  ><span >add to card</span>
+                                <svg  width="13px" height="10px" viewbox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 10px;">
+                    <div class="card" id="1">
+                        <img src="photo/a5tharna3ne3i.jpg" alt="Image 2" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">a5tharna3ne3i</h5>
+                            <p class="card-text">Price: dt 10</p>
+                            <button class="cta" onclick="addToCart(1)">
+                                <span >add to card</span>
+                                <svg  width="13px" height="10px" viewbox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 10px;">
+                    <div class="card" id="2">
+                        <img src="photo/a7mar ch3chou3i.jpg" alt="Image 3" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">a7mar ch3chou3i</h5>
+                            <p class="card-text">Price: dt 30</p>
+                            <button class="cta" onclick="addToCart(2)">
+                                <span >add to card</span>
+                                <svg  width="13px" height="10px" viewbox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 10px;">
+                    <div class="card" id="3">
+                        <img src="photo/a7mar.jpg" alt="Image 2" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">a7mar</h5>
+                            <p class="card-text">Price: dt 10</p>
+                            <button class="cta" onclick="addToCart(3)">
+                                <span >add to card</span>
+                                <svg  width="13px" height="10px" viewbox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </article>
+        <article class="shop2" id="shop2" data-page="shop2">
+          <section class="container" style="margin-top: 100px;">
+            <div class="row">
+                <div class="col-md-4" style="margin-top: 10px;">
+                    <div class="card" id="4">
+                        <img src="photo/asfar mible7.jpg" alt="Image 2" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">asfar mible7</h5>
+                            <p class="card-text">Price: dt 10</p>
+                            <button class="cta" onclick="addToCart(4)">
+                                <span >add to card</span>
+                                <svg  width="13px" height="10px" viewbox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 10px;">
+                    <div class="card" id="5">
+                        <img src="photo/asfar.jpg" alt="Image 2" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">asfar</h5>
+                            <p class="card-text">Price: dt 10</p>
+                            <button class="cta" onclick="addToCart(5)">
+                                <span >add to card</span>
+                                <svg  width="13px" height="10px" viewbox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 10px;">
+                    <div class="card" id="6">
+                        <img src="photo/azra9.jpg" alt="Image 2" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">azra9</h5>
+                            <p class="card-text">Price: dt 10</p>
+                            <button class="cta" onclick="addToCart(6)">
+                                <span >add to card</span>
+                                <svg  width="13px" height="10px" viewbox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 10px;" >
+                    <div class="card" id="7">
+                        <img src="photo/gray.jpg" alt="Image 2" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">gray</h5>
+                            <p class="card-text">Price: dt 10</p>
+                            <button class="cta" onclick="addToCart(7)">
+                                <span >add to card</span>
+                                <svg  width="13px" height="10px" viewbox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 10px;">
+                    <div class="card" id="8">
+                        <img src="photo/kharawi.jpg" alt="Image 2" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">kharawi</h5>
+                            <p class="card-text">Price: dt 10</p>
+                            <button class="cta" onclick="addToCart(8)">
+                                <span >add to card</span>
+                                <svg  width="13px" height="10px" viewbox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </article>
+        <article class="panie" id="panie" data-page="panie">
+          <div class="container" id="cart">
+            <h2>Cart</h2>
+            <button class="btn" id="btnrest" onclick="restall()">rest</button>
+            <form method="post" name="contact-form">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                        <input type="text" class="form-control" name="name"  placeholder="full name" required>
+                        <input type="tel" class="form-control" name="tel"  placeholder="number" required>
+                        <input type="email" class="form-control" name="email" placeholder="name@example.com" required>
+                </thead>
+                <tbody inputmode="td" id="cart-body">
+                </tbody>
+                <tfoot id="cart-foot">
+                    <h3 id="h3"></h3>
+                </tfoot>
+                
+            </table> 
+            <input type="text" id="tname" style="display: none;" name="data" required>
+            <button class="btn btn-lg btn-block" id="btnsubmit" type="submit" onclick="envoier()" >submit</button>
+            </form>
         </div>
-    </nav>
-    </nav>
-    </header>
-    <section>
-        <main>
-            <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-                <div class="carousel-indicators" >
-                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                </div>
-                <div class="carousel-inner" >
-                  <div class="carousel-item active">
-                    <div class="container" > 
-                      <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/Banner/deniercoupbalaih24.jpg?width=1920" alt="">
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="container">
-                      <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/Banner/mix-accueil.jpg?width=1920" alt="">
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">السابق</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-              </div><br><br><br><br><br><br><br><br><br>    
-            <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" style="height: 120vh;" >
-                <div class="carousel-indicators" style="height: 120vh;">
-                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner" style="height: 120vh;">
-                  <div class="carousel-item active">
-                    <div class="container" style="height: 120vh;"> 
-                      <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/catalog/product/cache/1/small_image/1920x/17f82f742ffe127f42dca9de82fb58b1/0/0/0032980_1_.jpg" alt="">
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="container">
-                      <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/catalog/product/cache/1/small_image/1920x/17f82f742ffe127f42dca9de82fb58b1/0/0/0031862-black_2__1.jpg" alt="">
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="container">
-                      <img class="mx-auto" style="width: 100%;" src="https://hamedia.b-cdn.net/catalog/product/cache/1/small_image/1920x/17f82f742ffe127f42dca9de82fb58b1/0/0/0032588_1__1.jpg" alt="">
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">السابق</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">التالي</span>
-                </button>
-              </div>
-        </main>
-    </section>
+        </article>
     <footer></footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

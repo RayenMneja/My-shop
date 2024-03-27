@@ -80,6 +80,10 @@ body{
 	margin: 0;
 	padding: 0;
 }
+article {
+    display: none; 
+}
+
 
 /*----------bootstrap-navbar-css------------*/
 .navbar-logo{
@@ -276,6 +280,7 @@ button{
     color: var(--gold-white-color-alt);
     background-color: #8B8B8B;
 }
+
 .cta{
     position:relative;
     margin: auto;
