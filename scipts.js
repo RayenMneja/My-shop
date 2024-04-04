@@ -57,7 +57,7 @@ let somme = 0;
         function envoier(){
             let ev = document.getElementById('tname');
             ev.value = finCommend() ;
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxNmOC-NG-0JrmR6YYzF9k7vlRVRfPwrtgk3vittmf3A4jtqnggd2b-lyC9RUX3kouV8g/exec'
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwtJVavyZeXgpNA3IpBmyNzMfVeCFxHtHCjxzJHRTSsl-pnIO8IWALbtQjEnsfnviaGrw/exec'
 
             const form = document.forms['contact-form']
             
